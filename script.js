@@ -71,30 +71,82 @@
 // let sandi = new Mahasiswa("Sandi", 10);
 
 // 4. Object Create (Yang paling enak digunakan)
-const methodMahasiswa = {
-  makan: function (porsi) {
+// const methodMahasiswa = {
+//   makan: function (porsi) {
+//     this.energi += porsi;
+//     console.log(`Halo ${this.nama}, selamat makan`);
+//   },
+
+//   main: function (jam) {
+//     this.energi -= jam;
+//     console.log(`Halo ${this.nama}, selamat bermain`);
+//   },
+
+//   tidur: function (jam) {
+//     this.energi += jam * 2;
+//     console.log(`Halo ${this.nama}, selamat tidur`);
+//   },
+// };
+
+// function Mahasiswa(nama, energi) {
+//   let mahasiswa = Object.create(methodMahasiswa); // membuat parent object
+//   mahasiswa.nama = nama;
+//   mahasiswa.energi = energi;
+
+//   return mahasiswa;
+// }
+
+// let sandi = Mahasiswa("Sandi", 2);
+// let rika = Mahasiswa("Rika", 6);
+
+// -----------------------------------
+// Prototype : tipe object prototypel inheritence
+//
+// function Mahasiswa(nama, energi) {
+//   this.nama = nama;
+//   this.energi = energi;
+// }
+
+// Mahasiswa.prototype.makan = function (porsi) {
+//   this.energi += porsi;
+//   return `Halo ${this.nama}, selamat makan!`;
+// };
+
+// Mahasiswa.prototype.main = function (jam) {
+//   this.energi -= jam;
+//   return `Halo ${this.nama}, selamat bermain!`;
+// };
+
+// Mahasiswa.prototype.tidur = function (jam) {
+//   this.energi += jam * 2;
+//   return `Halo ${this.nama}, selamat tidur!`;
+// };
+
+// let sandi = new Mahasiswa("Sandi", 10);
+
+// Prototype : tipe object versi Class "yang biasa dipakai"
+//
+class Mahasiswa {
+  constructor(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
+  }
+
+  makan(porsi) {
     this.energi += porsi;
-    console.log(`Halo ${this.nama}, selamat makan`);
-  },
+    return `Halo ${this.nama}, selamat makan!`;
+  }
 
-  main: function (jam) {
+  main(jam) {
     this.energi -= jam;
-    console.log(`Halo ${this.nama}, selamat bermain`);
-  },
+    return `Halo ${this.nama}, selamat bermain!`;
+  }
 
-  tidur: function (jam) {
+  tidur(jam) {
     this.energi += jam * 2;
-    console.log(`Halo ${this.nama}, selamat tidur`);
-  },
-};
-
-function Mahasiswa(nama, energi) {
-  let mahasiswa = Object.create(methodMahasiswa); // membuat parent object
-  mahasiswa.nama = nama;
-  mahasiswa.energi = energi;
-
-  return mahasiswa;
+    return `Halo ${this.nama}, selamat tidur!`;
+  }
 }
 
-let sandi = Mahasiswa("Sandi", 2);
-let rika = Mahasiswa("Rika", 6);
+let sandi = new Mahasiswa("Sandi", 10);
+let rika = new Mahasiswa("Rika", 30);
